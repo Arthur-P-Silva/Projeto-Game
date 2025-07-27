@@ -1,10 +1,20 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
 const nuvem = document.querySelector('.nuvem');
-
 const game = document.querySelector('.game-board');
+const score = document.getElementById('score');
+
+let pontos = 0; //Valor inicial da pontuação
+
+const intervaloScore = setInterval(() =>{
+
+    pontos+=10; //Aumenta na pontuação de 10 em 10
+    score.textContent = `Score ${pontos}`; //Atualiza pontuação na tela
+
+}, 100); //Atuliza pontuação a cada 0.1s
 
 const jump = () =>{
+
     mario.classList.add('jump');
 
     setTimeout(() =>{ 
@@ -13,6 +23,7 @@ const jump = () =>{
 
     }, 500);
 }
+
 
 const loop = setInterval(() =>{
 
@@ -38,12 +49,13 @@ const loop = setInterval(() =>{
 
 
         clearInterval(loop); //loop para de rodar
+        clearInterval(intervaloScore) //Pontuação para de contar
     }
 
 }, 10);
 
-document.addEventListener('keydown', jump);
-document.addEventListener('touchstart', jump);
+document.addEventListener('keydown', jump); //Ao clicar em qualquer tecla
+document.addEventListener('touchstart', jump); //Ao clicar na tela
 
 const bntReiniciar = document.getElementById('reset');
 

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'mario';
+    src: url(../img/SuperMario256.ttf);
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -6,6 +11,8 @@
 
 body{
     background-color: ghostwhite;
+    font-family: 'mario', Arial, Helvetica, sans-serif;
+    color: rgb(208, 2, 2);
 }
 
 .game-board{
